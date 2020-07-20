@@ -1,4 +1,3 @@
-import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.function.Executable;
 import java.io.*;
@@ -18,7 +17,7 @@ import moglib.*;
  * Test class that dynamically generate test cases for each sql query
  * Get file path from environment variable
  */
-@FixMethodOrder()
+
 public class TracefileTest {
     private static File file;
     private static MogSqlite mog;
