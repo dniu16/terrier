@@ -83,7 +83,6 @@ if __name__ == "__main__":
     ## FOR (dirs)
     
     # Compute final exit code. If any test failed, then the entire program has to fail
-
     final_code = 0
     for c in all_exit_codes:
         final_code = final_code or c
