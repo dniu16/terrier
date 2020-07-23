@@ -1,14 +1,19 @@
 # JUnit Testing Script
 
 This directory contains tests using Junit5.
-Under src, the moglib directory contains APIs from Wan's mogjdbc library used to
-handle database interaction
-GenerateTrace converts input file consisting of sql statements to tracefile format
-TracefileTest takes in path to a tracefile and dynamically generate a test case
+Under src, the moglib directory contains modified APIs from Wan's mogjdbc library 
+used to handle database interaction
+GenerateTrace converts input file consisting of sql statements to trace file format
+
+There are two sets of tests: trace tests and non-trace related junit tests.
+TracefileTest takes in path to a trace file and dynamically generate a test case
 for each query. (Test case: execute the query, get the result from database and
 check if the hash match)
-TrafficCopTest and WireTest are non-tracefile related tests.
+The traces directory contains sql input files and trace test files.
+Trace test files end with .test
+TrafficCopTest and WireTest are non-trace related junit tests.
 TestUtility provides a list of utility methods
+run_junit.py will execute the non-trace related junit tests first and then the trace tests.
 
 Instruction to use GenerateTrace:
 First, establish a local postgresql database
@@ -17,8 +22,10 @@ Third, in the command line, run ant compile
 Finally, run ant generate-trace with 4 arguments: path, db-url, db-user and db-password
 Command format: ant generate-trace -Dpath=PATH_TO_YOUR_FILE
  -Ddb-url=YOUR_JDBC_URL -Ddb-user=YOUR_DB_USERNAME -Ddb=password=YOUR_DB_PASSWORD
-Format of your input file: sql statements, one per line
-An output file should be produced called output.txt which is of tracefile format
+Format of your input file: sql statements, one per line, comments allowed (start line with #)
+An output file should be produced called output.txt which is of trace file format
+Rename output.txt to contain .test (like xxx.test) for it to be included in 
+future junit test runs
 
 ## Installation and pre-requisites
 
