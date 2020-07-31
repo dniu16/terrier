@@ -63,7 +63,7 @@ if __name__ == "__main__":
         # Look for all of the .test files in the each directory
         if item.endswith(constants.TESTFILES_PREFIX):
             os.environ["NOISEPAGE_TRACE_FILE"] = os.path.join(noise_trace_dir, item)
-            LOG.info(section_header("TRACEFILE TEST: " + os.environ["NOISEPAGE_TRACE_FILE"]))
+            LOG.info(section_header("TRACEFILE TEST: " + os.environ["NOISEPAGE_TRACE_FILE"]))           
             exit_code = 0
             try:
                 runner = TestJUnit(args)

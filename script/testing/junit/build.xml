@@ -50,6 +50,20 @@
   </java>
 </target>
 
+<target name="filter-trace" depends="compile">
+  <java classname="FilterTrace" fork="yes">
+    <classpath>
+      <pathelement location="${out.dir}" />
+      <path refid="lib.classpath" />
+    </classpath>
+    <arg value="${path}"></arg>
+    <arg value="${db-url}"></arg>
+    <arg value="${db-user}"></arg>
+    <arg value="${db-password}"></arg>
+    <arg value="${skip-list}"></arg>
+  </java>
+</target>
+
 <target name="test-trace" depends="compile">
   <!--
     IMPORTANT: You have to set the NOISEPAGE_TRACE_FILE environment variable
